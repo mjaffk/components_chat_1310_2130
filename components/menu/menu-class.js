@@ -10,7 +10,7 @@
             this.data = data;
             this.shownSubmenu = [];
         }
-        
+    
         /**
          * Generate HTMLElement and Event for menu
          */
@@ -20,9 +20,9 @@
             this.elem.append( htmlMenu );
             this.elem.classList.add( 'menu' );
             this.elem.addEventListener( 'mouseover', () => this._showSubmenuManager( event ) );
-            this.elem.addEventListener('mouseout', () => this._hideAll(event));
+            this.elem.addEventListener( 'mouseout', () => this._hideAll( event ) );
         }
-        
+    
         /**
          * Generate HTMLText for menu
          * @param {Array} list
@@ -32,19 +32,19 @@
          */
         _getHTML( list, level = 0 ) {
             let itemList = document.createElement( 'ul' );
-            
+        
             itemList.dataset.level = level;
             if ( level > 0 ) itemList.hidden = true;
-            
+        
             itemList.innerHTML = list.reduce( ( html, { name, link = '#', subs } ) => {
                 let htmlSubs = (!subs) ? ' ' : this._getHTML( subs, level + 1 ).outerHTML;
                 html += `<li><a href="${link}" target="_blank">${name}</a>${htmlSubs}</li>`;
                 return html;
             }, '' );
-            
+        
             return itemList;
         }
-        
+    
         /**
          * Organise showing submenu
          * @param {Object} event
@@ -53,19 +53,19 @@
         _showSubmenuManager( event ) {
             let callElement = Menu._findSubmenuParent( event.target );
             if ( !callElement ) return;
-            
+        
             let submenu = callElement.querySelector( 'ul' );
             if ( !submenu ) return;
-            
+        
             this.shownSubmenu.push( {
                 parent : callElement,
                 element : submenu,
                 level : submenu.dataset.level,
             } );
-            
+        
             Menu._showElement( submenu );
         }
-        
+    
         /**
          * Find element li
          * @param {Element} target
@@ -79,7 +79,7 @@
             }
             return target;
         }
-        
+    
         /**
          * Show hidden element
          * @param {Element} element
@@ -88,16 +88,19 @@
         static _showElement( element ) {
             element.hidden = false;
         }
-        
+    
         /**
          * Hide all shown submenu
          * @private
          */
         _hideAll() {
-            this.shownSubmenu.forEach( ( submenu ) => {
-                submenu.element.hidden = true;
-            } );
-            this.shownSubmenu = [];
+            let that = this;
+            setTimeout( () => {
+                that.shownSubmenu.forEach( ( submenu ) => {
+                    submenu.element.hidden = true;
+                } );
+                that.shownSubmenu = [];
+            }, 2000 );
         }
     }
     
