@@ -1,0 +1,12 @@
+div.history
+    each dataItem in data
+        div.history__message-box
+            div.history__picture
+                img(
+                src=dataItem.picture
+                title='user pic'
+                )
+                span.history__time=dataItem.time
+            div.history__message
+                span.history__sender=dataItem.sender
+                p.history__text=dataItem.message

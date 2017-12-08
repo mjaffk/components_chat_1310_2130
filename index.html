@@ -1,14 +1,30 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <link rel="shortcut icon" href="favicon.png" type="image/png">
-    </head>
-    <body>
-        <h1>Компонеты</h1>
-        <div class="js-app"></div>
-        <div><a href="components/menu/menu.html">Open Menu page</a></div>
-        <div><a href="components/star-rating/star-rating.html">Open Star-rating page</a></div>
-        <div><a href="components/clock/clock.html">Open Clock page</a></div>
-        <div><a href="components/chat/chat.html">Open Chat page</a></div>
-    </body>
+<!-- By Ekaterina Khorina -->
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+
+    <script src="/components/chat-component/history/history.pug.js"></script>
+    <script src="/components/chat-component/send-form/send-form.pug.js"></script>
+
+    <link rel="stylesheet" href="/components/chat-component/chat/chat.css">
+    <link rel="stylesheet" href="/components/chat-component/history/history.css">
+    <link rel="stylesheet" href="/components/chat-component/send-form/send-form.css">
+
+</head>
+<body>
+<div class="js-app">
+</div>
+<script type="module">
+    import {Chat} from '/components/chat-component/chat/chat.js';
+
+    new Chat({
+        elem: document.querySelector('.js-app').appendChild(document.createElement('div')),
+    });
+</script>
+</body>
 </html>

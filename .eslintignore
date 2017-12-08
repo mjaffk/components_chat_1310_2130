@@ -1,2 +1,4 @@
+node_modules/
 **/*.pug.js
+**/*.pug
 bundle.js

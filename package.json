@@ -13,10 +13,14 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "jsdoc": "^3.5.5",
-    "mocha": "^4.0.1"
+    "mocha": "^4.0.1",
+    "pug": "^2.0.0-rc.4",
+    "pug-cli": "^1.0.0-alpha6"
   },
   "scripts": {
     "start": "node_modules/.bin/static-server",
+    "pug": "./node_modules/.bin/pug --client --name-after-file --extension pug.js --pretty components/**/**/*.pug",
+    "lint": "./node_modules/.bin/eslint components/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,7 +28,7 @@
     "url": "git+https://github.com/mjaffk/components_chat_1310_2130.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "mjaffk",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mjaffk/components_chat_1310_2130/issues"

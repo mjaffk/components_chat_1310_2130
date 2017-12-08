@@ -1,5 +1,7 @@
-import {SendForm} from './send-form.js';
-import {History} from './history.js';
+import {SendForm} from '/components/chat-component/send-form/send-form.js';
+import {History} from '/components/chat-component/history/history.js';
+
+const DEFAULT_AVA_LINK = '/lib/defaultAva.jpg';
 
 /**
  * Simple chat messenger
@@ -29,50 +31,74 @@ export class Chat {
             {
                 sender: 'User1',
                 message: 'Text1',
+                picture: DEFAULT_AVA_LINK,
+                time: '',
             },
             {
                 sender: 'User2',
                 message: 'Text2',
+                picture: DEFAULT_AVA_LINK,
+                time: '',
             },
             {
                 sender: 'User1',
                 message: 'Text1',
+                picture: DEFAULT_AVA_LINK,
+                time: '',
             },
             {
                 sender: 'User2',
                 message: 'Text2',
+                picture: DEFAULT_AVA_LINK,
+                time: '',
             },
             {
                 sender: 'User1',
                 message: 'Text1',
+                picture: DEFAULT_AVA_LINK,
+                time: '',
             },
             {
                 sender: 'User2',
                 message: 'Text2',
+                picture: DEFAULT_AVA_LINK,
+                time: '',
             },
             {
                 sender: 'User1',
                 message: 'Text1',
+                picture: DEFAULT_AVA_LINK,
+                time: '',
             },
             {
                 sender: 'User2',
                 message: 'Text2',
+                picture: DEFAULT_AVA_LINK,
+                time: '',
             },
             {
                 sender: 'User1',
                 message: 'Text1',
+                picture: DEFAULT_AVA_LINK,
+                time: '',
             },
             {
                 sender: 'User2',
                 message: 'Text2',
+                picture: DEFAULT_AVA_LINK,
+                time: '',
             },
             {
                 sender: 'User1',
                 message: 'Text1',
+                picture: DEFAULT_AVA_LINK,
+                time: '',
             },
             {
                 sender: 'User2',
                 message: 'Text2',
+                picture: DEFAULT_AVA_LINK,
+                time: '',
             },
         ]);
 
@@ -93,10 +119,19 @@ export class Chat {
      * @private
      */
     _onSubmitSendForm({message}) {
+
+        let formatter = new Intl.DateTimeFormat('ru', {
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric',
+        });
+
         this.history.setData([
             {
                 sender: 'Me',
                 message,
+                picture: DEFAULT_AVA_LINK,
+                time: formatter.format(Date.now()),
             },
             ...this.history.data,
         ]);

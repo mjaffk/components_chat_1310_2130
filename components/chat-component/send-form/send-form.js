@@ -18,12 +18,7 @@ export class SendForm {
      * Generate html
      */
     render() {
-        this.elem.innerHTML = `
-            <form class="send-form">
-                <textarea class="send-form__message"></textarea>
-                <input type="submit" class="send-form__send" value="Send">
-            </form>
-        `;
+        this.elem.innerHTML = sendFormTemplate();
     }
 
     /**
@@ -33,8 +28,8 @@ export class SendForm {
      */
     _onSubmit(event) {
         event.preventDefault();
-        let textarea = event.target.querySelector('textarea');
-        let message = textarea.value;
+        let text = event.target.querySelector('.send-form__message');
+        let message = text.value;
         if (this._verifyMessage(message)) return;
         this.onSubmit({
             message,
@@ -50,5 +45,4 @@ export class SendForm {
     _verifyMessage(message) {
         return (message === '');
     }
-
 }
