@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "node_modules/.bin/static-server",
-    "pug": "./node_modules/.bin/pug --client --name-after-file --extension pug.js --pretty components/**/**/*.pug",
+    "pug": "./node_modules/.bin/pug --client --name-after-file --extension pug.js --pretty -w components/**/**/*.pug",
     "lint": "./node_modules/.bin/eslint components/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

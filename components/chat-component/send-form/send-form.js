@@ -30,7 +30,7 @@ export class SendForm {
         event.preventDefault();
         let text = event.target.querySelector('.send-form__message');
         let message = text.value;
-        if (this._verifyMessage(message)) return;
+        if (SendForm._verifyMessage(message)) return;
         this.onSubmit({
             message,
         });
@@ -42,7 +42,7 @@ export class SendForm {
      * @return {boolean}
      * @private
      */
-    _verifyMessage(message) {
+    static _verifyMessage(message) {
         return (message === '');
     }
 }

@@ -17,19 +17,19 @@
     color: orange;
 }
 
-.history_picture{
+.history__picture{
     float:left;
     width:50px;
     display:block;
     padding-right:10px;
 }
-.history_picture img{
+.history__picture img{
     width:50px;
     height:50px;
     border-radius:25px;
     border: 1px solid silver;
 }
-.history_picture span{
+.history__picture span{
     font-weight:bold;
     font-size:12px;
     clear:both;

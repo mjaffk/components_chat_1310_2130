@@ -9,4 +9,5 @@ div.history
                 span.history__time=dataItem.time
             div.history__message
                 span.history__sender=dataItem.sender
-                p.history__text=dataItem.message
+                p.history__text
+                    pre=dataItem.message
