@@ -119,11 +119,9 @@ export class Chat {
      * @private
      */
     _onSubmitSendForm({message}) {
-
         let formatter = new Intl.DateTimeFormat('ru', {
             hour: 'numeric',
             minute: 'numeric',
-            second: 'numeric',
         });
 
         this.history.setData([

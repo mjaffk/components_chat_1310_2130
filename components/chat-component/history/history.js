@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * History of messages in chat
  */
